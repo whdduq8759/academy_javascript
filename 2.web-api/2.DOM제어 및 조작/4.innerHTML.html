@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="greeting">Hello <span>World!</span></div>
+    <ul id="fruits">
+        <li>Apple</li>
+    </ul>
+    <script>
+        // 백옴하 아 뭐먹지
+        const $greeting = document.querySelector('#greeting');
+        console.log($greeting.textContent);
+        console.log($greeting.innerHTML);
+
+        //    $greeting.textContent = '<span>하하</span>';
+        $greeting.innerHTML = '<span>하하</span>';
+
+        const $furits = document.querySelector('#fruits');
+
+        // 노드추가
+        $furits.innerHTML += '<li>Banana</li>';
+
+        // 노드교체나 삭제는 innerHTML을 사용하면 위험하다리미역기차표범위임장독대나무궁화이자린고비닐
+        // 노드교체
+        $furits.innerHTML = '<li>Grape</li>'
+
+        // 노드삭제
+        $furits.innerHTML = '<li></li>'
+
+        // ㄹㅇ 배고프다 살려줘
+
+
+    </script>
+</body>
+
+</html>
