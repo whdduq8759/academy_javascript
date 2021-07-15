@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="email" id="account" value="abc123@naver.com">
+
+
+    <script>
+        const $input = document.querySelector('#account');
+        console.log($input.attributes);
+        console.log($input.attributes[1]);
+        console.log($input.attributes.id.value);
+        // ㅈㄴ졸리네
+        $input.attributes.id.value = 'acc';
+        $input.attributes.value.value = 'abc123@gmail.com';
+        //아 배고파
+        //언제 끝나냐 
+        $input.attributes.type.value = 'checkbox';
+        // 도레미 미국 국산 산봉우리 리어카 카센타 타조 조지아 크래프트 트라이앵글 글로벌 벌집피자 자이자이 자슥아 아파트 트름 
+    </script>
+</body>
+</html>
