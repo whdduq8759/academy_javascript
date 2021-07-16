@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="checkbox" name="" id="">
+    <em class="msg"></em>
+    <script>
+        const $checkbox = document.querySelector('input[type=checkbox]');
+        const $msg = document.querySelector('.msg');
+
+        // i am so tired i want go to the home 
+        // 타겟이고 뭐고 자고 먹고 싸고 쉬고 차고 사고 수고 지고 망고 받고 하고
+        $checkbox.addEventListener('change',  e => {
+            // 실제로 이벤트가 발생한 태그
+            console.log(e.target);
+            console.log(e.target.checked);
+
+            $msg.textContent = e.target.checked ? 'on' : 'off';
+
+        });
+    </script>
+
+</body>
+</html>

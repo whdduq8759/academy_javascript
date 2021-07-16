@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p>아무곳이나 클릭하세요~</p>
+    <em class="msg"></em>
+    
+    
+    <script>
+        // ㅈ...ㅏ...ㄱ...ㅣ...ㅇ...ㅣ...ㄹ...ㅂ...ㅗ...ㅈ...ㅣ...ㄱ...ㅈ...ㅓ...ㄴ
+        
+        const $msg = document.querySelector('.msg');
+
+        // 문서전체에 클릭이벤트 부여
+        // yee~ 2 이
+        document.addEventListener('click', function(event) {
+            console.log(event);
+            console.log(event.type);
+            console.log(event.target);
+
+            $msg.textContent = `x: ${event.clientX}, y: ${event.clientY}`;
+        });
+    </script>
+</body>
+</html>
