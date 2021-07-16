@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #fruits {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+
+        #fruits li {
+            width: fit-content;
+            margin-right: 20px;
+            cursor: pointer;
+            background: lightgray;
+        }
+
+        .active {
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul id="fruits">
+        <li id="apple" class="active">Apple</li>
+        <li id="banana">Banana</li>
+        <li id="grape">Grape</li>
+    </ul>
+
+    <div>선택된 과일: <em class="msg">apple</em></div>
+
+    <br>
+
+    <label for="">
+        # 새로운 과일 추가: 
+        <input type="text" class="text-box">
+        <button id="add">추가</button>
+    </label>
+
+    <script>
+        // 살려줘 ㅅㅂ...
+        const $fruits = document.getElementById('fruits');
+        const $msg = document.querySelector('.msg');
+
+        // 이벤트 핸들러
+        function activate(e) {
+            // e.target을 제한하는 방법
+            // 그저 고개만 끄덕일뿐
+            // 
+            if(!e.target.matches('#fruits > li')) {
+                return;
+            }
+
+            for (let $li of [...$fruits.children]) {
+                if ($li.classList.contains('active')) {
+                    $li.classList.remove('active');
+                    break;
+                }
+            }
+            e.target.classList.add('active');
+            $msg.textContent = e.target.getAttribute('id');
+        }
+
+        // 최초 한번만 ul에 activate이벤틀 ㄹ부여함
+        $fruits.addEventListener('click', activate);
+
+        // 과일 동적 추ㄱr
+        const $addBtn = document.getElementById('add');
+        const $textbox = document.querySelector('.text-box');
+
+        $addBtn.addEventListener('click', e => {
+            const $li  = document.createElement('li');
+            $li.textContent = $textbox.value;
+            $li.setAttribute('id', $li.textContent.toLowerCase());
+            $fruits.appendChild($li);
+            $textbox.value = '';
+
+            // 아무일도 없었다
+            // 아 배고프다
+            // 이쩜 타겟이든 뭔 타겟이든 끝내줘
+            // 유엘한테 타겟이 붙겠지 
+
+        });
+    </script>
+
+
+
+</body>
+
+</html>
