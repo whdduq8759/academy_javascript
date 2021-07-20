@@ -35,16 +35,16 @@ function makeNumberIcons(isClear = false) {
     $numbers.appendChild($frag);
 }
 
-// updown 애니메이션 클래스 처리 함수
+//updown 애니메이션 클래스 처리 함수
 function executeUpDownAnimation(isUp) {
     const ANI_CLASS_NAME = 'selected';
     const [$up, $down] = [...document.querySelector('.result').children];
-    if(isUp) {
-        $down.classList.remove('ANI_CLASS_NAME');
-        $up.classList.add('ANI_CLASS_NAME');
-    }else {
-        $up.classList.remove('ANI_CLASS_NAME');
-        $down.classList.add('ANI_CLASS_NAME');
+    if (isUp) {
+        $down.classList.remove(ANI_CLASS_NAME);
+        $up.classList.add(ANI_CLASS_NAME);
+    } else {
+        $up.classList.remove(ANI_CLASS_NAME);
+        $down.classList.add(ANI_CLASS_NAME);
     }
 }
 
@@ -53,28 +53,22 @@ function processUpDownCase(isUp) {
     if (isUp) { //up인 경우
         gameDatas.min = gameDatas.answer + 1;
         document.getElementById('begin').textContent = gameDatas.min;
-       
-
     } else {
         //최대값 갱신
         gameDatas.max = gameDatas.answer - 1;
         //html에 숫자텍스트 #end에 최대값 넣기
         document.getElementById('end').textContent = gameDatas.max;
     }
-
-    // updown아이콘 애니메이션 처리
+    //updown아이콘 애니메이션 처리
     executeUpDownAnimation(isUp);
-
     //아이콘 갱신
     makeNumberIcons(true);
 }
 
-// 정답을 맞췄을 떄 처리함수
-
-function porcessCorrect($target) {
-
-    // 축하박스 애니메이션 처리
-    const $finish = document.getElementsByClassName('finish');
+//정답을 맞췄을 때 처리함수
+function processCorrect($target) {
+    //축하박스 애니메이션 처리
+    const $finish = document.getElementById('finish');
     $finish.classList.add('show');
 
     $target.setAttribute('id', 'move');
@@ -89,9 +83,7 @@ function checkAnswer($target) {
     } = gameDatas;
 
     if (secret === answer) { //정답인 경우
-        porcessCorrect($target);
-        
-
+        processCorrect($target);
     } else if (secret < answer) { //down인 경우
         processUpDownCase(false);
     } else { //up인 경우
